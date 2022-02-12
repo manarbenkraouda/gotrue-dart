@@ -55,7 +55,7 @@ class GoTrueApi {
     try {
       final body = {};
       final fetchOptions = FetchOptions(headers);
-      final urlParams = ['grant_type=password', 'email=' + email, 'password=' + password];
+      final urlParams = ['grant_type=password', 'username=' + email, 'password=' + password];
       if (options?.redirectTo != null) {
         final encodedRedirectTo = Uri.encodeComponent(options!.redirectTo!);
         urlParams.add('redirect_to=$encodedRedirectTo');
