@@ -53,9 +53,8 @@ class GoTrueApi {
     AuthOptions? options,
   }) async {
     try {
-      final body = {'email': email, 'password': password};
       final fetchOptions = FetchOptions(headers);
-      final urlParams = ['grant_type=password'];
+      final urlParams = ['grant_type=password', 'email:' + email, 'password' + password];
       if (options?.redirectTo != null) {
         final encodedRedirectTo = Uri.encodeComponent(options!.redirectTo!);
         urlParams.add('redirect_to=$encodedRedirectTo');
@@ -63,7 +62,6 @@ class GoTrueApi {
       final queryString = '?${urlParams.join('&')}';
       final response = await fetch.post(
         '$url/token$queryString',
-        body,
         options: fetchOptions,
       );
       if (response.error != null) {
