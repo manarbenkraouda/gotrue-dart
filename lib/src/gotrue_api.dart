@@ -62,6 +62,7 @@ class GoTrueApi {
       final queryString = '?${urlParams.join('&')}';
       final response = await fetch.post(
         '$url/token$queryString',
+        body: {},
         options: fetchOptions,
       );
       if (response.error != null) {
