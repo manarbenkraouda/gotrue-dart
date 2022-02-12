@@ -53,6 +53,7 @@ class GoTrueApi {
     AuthOptions? options,
   }) async {
     try {
+      final body = {};
       final fetchOptions = FetchOptions(headers);
       final urlParams = ['grant_type=password', 'email:' + email, 'password' + password];
       if (options?.redirectTo != null) {
@@ -62,7 +63,7 @@ class GoTrueApi {
       final queryString = '?${urlParams.join('&')}';
       final response = await fetch.post(
         '$url/token$queryString',
-        body: {},
+        body,
         options: fetchOptions,
       );
       if (response.error != null) {
